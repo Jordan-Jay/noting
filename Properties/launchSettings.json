@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Note Taking App2": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "G_DEBUG": "fatal-criticals"
+      },
+      "nativeDebugging": true
+    }
+  }
+}
