@@ -1,0 +1,108 @@
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+
+/* Override widget style properties */
+* {
+    -GtkTreeView-tree-line-pattern: "\1 \1";
+}
+
+
+/* Make widget focus indicator visible, except for labels */
+*:not(.view):focus {
+    border: 1px solid @theme_selected_bg_color;
+}
+label:not(.view),
+label:not(.view):focus,
+cellview:not(.view),         /* label inside combo box */
+cellview:not(.view):focus {
+    border: none;
+}
+
+
+/*
+ *
+ * Padding overrides
+ *
+ */
+
+headerbar.titlebar { min-height:24px }
+
+button,
+button.flat,
+button.text-button,
+button.image-button,
+stackswitcher.stack-switcher button {
+    min-height: .4cm;
+    min-width: .4cm;
+    padding: 3px 4px 2px 4px;
+}
+
+notebook header.top tabs tab,
+notebook header.left tabs tab,
+notebook header.bottom tabs tab,
+notebook header.right tabs tab {
+    margin: 0;
+    padding: 0 10px;
+}
+
+list row {
+    padding: 0;
+    min-height: 26px;
+    min-width: 26px;
+}
+
+
+/*
+ *
+ * Color overrides
+ *
+ */
+
+button:hover,
+button.default:hover,
+button.popup:hover,
+button.titlebutton:hover,
+spinbutton.horizontal button:hover,
+toolbar.inline-toolbar toolbutton button:hover {
+    background: shade(@theme_selected_bg_color, .6);
+}
+
+notebook header.top tabs tab:checked,
+notebook header.left tabs tab:checked,
+notebook header.bottom tabs tab:checked,
+notebook header.right tabs tab:checked {
+    background: #222;
+}
+notebook header.top tabs tab:hover,
+notebook header.left tabs tab:hover,
+notebook header.bottom tabs tab:hover,
+notebook header.right tabs tab:hover,
+notebook header.top tabs tab:checked:hover,
+notebook header.left tabs tab:checked:hover,
+notebook header.bottom tabs tab:checked:hover,
+notebook header.right tabs tab:checked:hover {
+    background: shade(@theme_selected_bg_color, .6);
+}
+
+.titlebar button.close:hover { background: @destructive_action }
+.titlebar button.minimize:hover { background: alpha(yellow, .15); }
+.titlebar button.maximize:hover { background: alpha(green, .2); }
+
+button.destructive-action:hover {
+    background: @destructive_action;
+}
+@define-color destructive_action #600;
+
+menubar > menuitem:hover > label,
+.menubar menuitem:hover > label {
+    color: white;
+    text-shadow: 0 0 1px white, 0 0 1px white, 0 0 1px white;
+}
+
+window > decoration,
+.csd decoration,
+.solid-csd decoration {
+    border: 1px solid mix(white, @theme_selected_bg_color, .5);
+}
+decoration:backdrop {
+    border: transparent;
+}
